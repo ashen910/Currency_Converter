@@ -22,27 +22,28 @@ export default function Mainpage() {
                     <div className="mb-4">
                          <label htmlFor={date} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date</label>
                          <input 
-                         type ="Date" 
-                         id ={date}
-                         name = {date}
+                         onChange={(e) => setDate(e.target.value)}
+                         type ="Date" id ={date} name = {date}
                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" 
                         placeholder="" required />
                      </div>
 
                      <div className="mb-4">
                          <label htmlFor={sourceCurrency} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Source Currency</label>
-                         <select className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
-                         name={sourceCurrency} id={sourceCurrency} value={sourceCurrency}>
+                         <select 
+                         onChange ={(e) => setSourceCurrency(e.target.value)}
+                         name={sourceCurrency} id={sourceCurrency} value={sourceCurrency}
+                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
                             <option value="">Select the source Currency</option>
                          </select>
                      </div>
 
                      <div className="mb-4">
                          <label htmlFor={targetCurrency} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Target Currency</label>
-                         <select className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500"
-                         name = {targetCurrency}
-                         id = {targetCurrency}
-                         value={targetCurrency} >
+                         <select 
+                         onChange={(e) => setTargetCurrency(e.target.value)}
+                         name = {targetCurrency} id = {targetCurrency} value={targetCurrency} 
+                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500">
 
                             <option value="">Select the Target Currency</option>
                          </select>
@@ -51,12 +52,12 @@ export default function Mainpage() {
                      <div className="mb-4">
                          <label htmlFor={amountInSourceCurrency} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Amount in Source Currency</label>
                          <input 
-                         type="text" 
-                         id={amountInSourceCurrency}
-                         name={amountInSourceCurrency}
+                         onChange={(e) => setAmountInSourceCurrency(e.target.value)}
+                         type="text" id={amountInSourceCurrency} name={amountInSourceCurrency}
                          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-green-500 focus:border-green-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-green-500 dark:focus:border-green-500" 
                          placeholder="Amount in source Currency" required />
                      </div>
+
                      <button className="bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-md">Get the target Currency</button>
             </form>
          </section>
