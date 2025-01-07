@@ -1,5 +1,5 @@
-import React, {useState} from 'react'
-
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 export default function Mainpage() {
 
     //States for the form feilds
@@ -10,6 +10,21 @@ export default function Mainpage() {
     const[amountInSourceCurrency, setAmountInSourceCurrency] = useState(0);
     const[amountInTargetCurrency, setAmountInTargetCurrency] = useState(0);
 
+//handle submit method
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };   
+     
+//Get all currency types
+useEffect (() => {
+   const getCurrencyNames = async() => {
+    try {
+        const responce = await axios.get("http://localhost:3000/getAllCurrencyNames");
+    }catch (err) {
+        console.error(err); 
+    }
+  }
+}, [])
 
   return (
     <div>
@@ -18,7 +33,8 @@ export default function Mainpage() {
        
         <div className= "mt-5 flex items-center justify-center flex-col">
          <section className="w-full lg:w-1/2" >
-            <form>
+            
+            <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                          <label htmlFor={date} className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date</label>
                          <input 
