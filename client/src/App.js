@@ -1,8 +1,12 @@
 import './App.css';
+import Mainpage from './Pages/Mainpage';
+
 
 function App() {
   return (
-    <div>Hellow world</div>
+    <div>
+      <Mainpage/>
+    </div>
   );
 }
 
