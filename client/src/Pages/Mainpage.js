@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import axios from 'axios';
+import axios from 'axios'; 
 export default function Mainpage() {
 
     //States for the form feilds
@@ -9,6 +9,7 @@ export default function Mainpage() {
     const[targetCurrency, setTargetCurrency] = useState("");
     const[amountInSourceCurrency, setAmountInSourceCurrency] = useState(0);
     const[amountInTargetCurrency, setAmountInTargetCurrency] = useState(0);
+    const [CurrencyNames, setCurrencyNames] = useState([]);
 
 //handle submit method
     const handleSubmit = (e) => {
@@ -19,11 +20,13 @@ export default function Mainpage() {
 useEffect (() => {
    const getCurrencyNames = async() => {
     try {
-        const responce = await axios.get("http://localhost:3000/getAllCurrencyNames");
+        const responce = await axios.get("http://localhost:3000/getAllCurrencies");
+        setCurrencyNames(responce.data);
     }catch (err) {
         console.error(err); 
     }
-  }
+  };
+  getCurrencyNames();
 }, [])
 
   return (
