@@ -42,7 +42,7 @@ const targetRate = rates[targetCurrency];
 //Final target Value
 const targetAmount = (targetRate/sourceRate) * amountInSourceCurrency;
 
-return res.json(targetAmount);
+return res.json(targetAmount.toFixed(2));
 
 //Calcualate Target Curency
 } catch(err) {
